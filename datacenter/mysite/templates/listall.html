@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有教師資料</title>
+</head>
+<body>
+    <h1>所有教師資料</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>課程</th>
+                <th>學期</th>
+                <th>年級</th>
+                <th>姓名</th>
+                <th>性別</th>
+                <th>電子郵件</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if teachers %}
+                {% for teacher in teachers %}
+                    <tr>
+                        <td>{{ teacher.ccourse }}</td>
+                        <td>{{ teacher.csemester }}</td>
+                        <td>{{ teacher.cgrade }}</td>
+                        <td>{{ teacher.cName }}</td>
+                        <td>{{ teacher.cGender }}</td>
+                        <td>{{ teacher.cEmail }}</td>
+                        <td>{{ teacher.cdescription }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7">沒有資料</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
