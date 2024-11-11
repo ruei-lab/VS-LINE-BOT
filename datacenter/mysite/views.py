@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import teacher,teacher_data , user_rating,syllabus_second,teacher_second, teacher_third, teacher_fourth, teacher_fifth,teacher_sixth,teacher_seventh, teacher_eighth,syllabus
 import speech_recognition as sr
 from pydub import AudioSegment
+import tempfile
 import os
 import sqlite3
 
@@ -972,7 +973,7 @@ def handle_message_Audio(event):
     path='./audio/'
     
     #檢查audio資料夾是否存在，沒有就創建
-    directory='./audio'
+    directory='/tmp/audio'
     if not os.path.exists(directory):
         os.makedirs(directory)
     
@@ -987,7 +988,6 @@ def handle_message_Audio(event):
     
     
     #轉檔
-    AudioSegment.converter =r'C:\Program Files\ffmpeg\bin\ffmpeg.exe'
     sound = AudioSegment.from_file_using_temporary_files(path) #透過 pydub 讀取剛保存的音訊檔案。
     path = os.path.splitext(path)[0]+'.wav'
     sound.export(path, format="wav") #將音訊檔案轉換成 .wav
