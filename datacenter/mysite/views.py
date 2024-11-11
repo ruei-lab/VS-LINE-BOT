@@ -19,7 +19,7 @@ from linebot.models import *
 from linebot.models import TemplateSendMessage, ButtonsTemplate, MessageAction
 from linebot.models.events import FollowEvent
 
-
+import subprocess
 
 # 初始化 LineBotApi 和 WebhookHandler
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -1001,7 +1001,19 @@ def handle_message_Audio(event):
     event.message.text=text
     handle_teacher(event)
 
+def check_ffmpeg():
+    try:
+        # 嘗試執行 `ffmpeg -version` 來檢查是否安裝了 FFmpeg
+        output = subprocess.check_output(['ffmpeg', '-version'])
+        print("FFmpeg is available:")
+        print(output.decode())
+    except FileNotFoundError:
+        print("FFmpeg is not available.")
+    except Exception as e:
+        print(f"Error checking FFmpeg: {e}")
 
+# 在你的應用程式開始時執行這個檢查
+check_ffmpeg()
 
 
 def index(request):
