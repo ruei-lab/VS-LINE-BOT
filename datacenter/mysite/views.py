@@ -98,6 +98,7 @@ def handle_teacher(event):
     teacher_7=['實務專題(二)','產業分析','就業講座','永續發展']
     teacher_8=['緊急應變','學期實習']
     scm_teacher=['李勝祥','李穎','林義屏','洪榮耀','徐賢斌','溫源鳳','潘郁仁','鄭玉惠','黃彥登']
+    key_words=['高科楠梓校區教室位置','選課日程','繳費專區','教授研究室地圖','畢業門檻','行事曆']
 
     #要定義為字典，非集合
     rating_map = {
@@ -721,7 +722,7 @@ def handle_teacher(event):
             ]
         )
     )
-    
+
         #依次發送這兩組訊息
         line_bot_api.reply_message(event.reply_token, [template_button_1, template_button_2,template_button_3])
 
@@ -962,6 +963,20 @@ def handle_teacher(event):
         # 可以在同一個回應中依次發送兩個訊息
         line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
+    elif mtext in key_words:
+
+        message = TextSendMessage(text=mtext)
+        line_bot_api.reply_message(event.reply_token, messages)
+
+
+
+
+
+
+
+
+
+
     else:
          line_bot_api.reply_message(event.reply_token, TextSendMessage(text='請確認你的訊息是否為查詢關鍵字，如想知道有哪些關鍵字，請查找其他資訊中的語音輸入關鍵字，或直接點選其他資訊直接查找'),timeout=10)
         
@@ -1001,19 +1016,6 @@ def handle_message_Audio(event):
     event.message.text=text
     handle_teacher(event)
 
-def check_ffmpeg():
-    try:
-        # 嘗試執行 `ffmpeg -version` 來檢查是否安裝了 FFmpeg
-        output = subprocess.check_output(['ffmpeg', '-version'])
-        print("FFmpeg is available:")
-        print(output.decode())
-    except FileNotFoundError:
-        print("FFmpeg is not available.")
-    except Exception as e:
-        print(f"Error checking FFmpeg: {e}")
-
-# 在你的應用程式開始時執行這個檢查
-check_ffmpeg()
 
 
 def index(request):
