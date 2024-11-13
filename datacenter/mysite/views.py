@@ -980,8 +980,39 @@ def handle_teacher(event):
         line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
     elif mtext=='學雜繳費資訊':
-        message.append(TextSendMessage(text="請點擊以下連結以了解繳費資訊：\https://ofa.nkust.edu.tw/p/405-1001-23737,c5020.php?Lang=zh-tw"))
-        line_bot_api.reply_message(event.reply_token, message)
+        response_text=("請點擊以下連結以了解繳費資訊：https://ofa.nkust.edu.tw/p/405-1001-23737,c5020.php?Lang=zh-tw")
+        message = TextSendMessage(text=response_text)
+        
+        # 在發送完訊息後，再發送按鈕樣板訊息
+        template_button_1= TemplateSendMessage(
+            alt_text='請選擇按鈕',
+            template=ButtonsTemplate(
+                title='你可能感興趣的其他資訊',
+                text='請選擇',
+                actions=[
+                    MessageAction(label='外語學習資源', text='外語學習資源'), #授課大綱未完成
+                    MessageAction(label='老師資訊', text='老師資訊'),
+                    MessageAction(label='授課大綱', text='授課大綱'),
+                    MessageAction(label='課程評價', text='課程評價'),
+                ]
+            )
+        )
+        #第二組按鈕
+        template_button_2=TemplateSendMessage(
+            alt_text='請選擇按鈕',
+            template=ButtonsTemplate(
+                title='你可能感興趣的其他資訊',
+                text='請選擇',
+                actions=[
+                    MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
+                    MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
+                    MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
+                ]
+            )             
+        )
+        # 可以在同一個回應中依次發送兩個訊息
+        line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
     elif mtext in key_words:
         message = TextSendMessage(text=mtext)
