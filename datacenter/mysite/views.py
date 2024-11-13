@@ -964,10 +964,8 @@ def handle_teacher(event):
         line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
     elif mtext in key_words:
-
         message = TextSendMessage(text=mtext)
-        line_bot_api.reply_message(event.reply_token, messages)
-
+        line_bot_api.reply_message(event.reply_token, message)
 
 
 
