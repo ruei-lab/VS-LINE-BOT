@@ -191,6 +191,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'),
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -235,6 +236,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -264,6 +266,7 @@ def handle_teacher(event):
                     MessageAction(label='老師資訊', text='老師資訊'),
                     MessageAction(label='授課大綱', text='授課大綱'),
                     MessageAction(label='課程評價', text='課程評價'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )
         )
@@ -321,6 +324,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -365,6 +369,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -408,6 +413,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -451,6 +457,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -564,6 +571,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'),
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -597,6 +605,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -672,6 +681,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -769,6 +779,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -854,6 +865,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -908,6 +920,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -959,6 +972,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
