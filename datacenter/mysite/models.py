@@ -106,6 +106,7 @@ class teacher_data(models.Model):
     strengths=models.TextField(max_length=2000,null=False,blank=False)
     tel=models.CharField(max_length=100, null=False)
     mail=models.EmailField(max_length=100, blank=True, default='')
+    website = models.URLField(max_length=200, blank=True, default='')
 
     def __str__(self) -> str:
         return self.name

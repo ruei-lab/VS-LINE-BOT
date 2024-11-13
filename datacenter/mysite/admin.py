@@ -51,7 +51,7 @@ class teacher_eighthAdmin(admin.ModelAdmin):
     search_fields=('acourse',) #指定某欄位搜尋
 
 class teacher_dataAdmin(admin.ModelAdmin):
-    list_display=('name','position','strengths','tel','mail')
+    list_display=('name','position','strengths','tel','mail','website')
     list_filter=('name',) #過濾欄位
 
 
