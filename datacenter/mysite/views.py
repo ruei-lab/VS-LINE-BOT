@@ -735,6 +735,8 @@ def handle_teacher(event):
             f"專長項目: {teacher_info.strengths}\n"
             f"分機: {teacher_info.tel}\n"
             f"Email: {teacher_info.mail}\n"
+            f"website: {teacher_info.website}\n"
+
         )       
             message = TextSendMessage(text=response_text)
   
