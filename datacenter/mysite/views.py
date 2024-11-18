@@ -263,12 +263,24 @@ def handle_teacher(event):
                     MessageAction(label='老師資訊', text='老師資訊'),
                     MessageAction(label='授課大綱', text='授課大綱'),
                     MessageAction(label='課程評價', text='課程評價'),
-                ]
+            ]
             
         
         #列印按鈕數量和內容
             print("按鈕數量:", len(actions))  # 確認按鈕數量
             print("按鈕內容:", actions)        # 確認按鈕內容
+
+            # 測試按鈕樣板
+            template_button_1 = TemplateSendMessage(
+                alt_text='請選擇按鈕',
+                template=ButtonsTemplate(
+                    title='你可能感興趣的其他資訊',
+                    text='請選擇',
+                    actions=actions
+                )
+            )
+
+
 
         #依次發送這兩組訊息
             messages = [message, template_button_1]
