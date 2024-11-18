@@ -271,30 +271,12 @@ def handle_teacher(event):
                 ]
             )
         )
-        # 在發送完訊息後，再發送按鈕樣板訊息
-            #第二組按鈕
-            template_button_2=TemplateSendMessage(
-                alt_text='請選擇按鈕',
-                template=ButtonsTemplate(
-                title='你可能感興趣的其他資訊',
-                text='請選擇',
-                actions=[
-                    MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
-                    MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
-                    MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
-                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
-                ]
-            )             
-        )
+
+
         #依次發送這兩組訊息
-            messages = [message, template_button_1, template_button_2]
-            if len(messages) <= 5:
-                line_bot_api.reply_message(event.reply_token, messages)
-            else:
-                # 若超過限制，可以分批發送
-                line_bot_api.reply_message(event.reply_token, [message])  # 發送第一條消息
-                # 之後再發送其他按鈕消息
-                line_bot_api.reply_message(event.reply_token, [template_button_1, template_button_2])
+            messages = [message, template_button_1]
+            line_bot_api.reply_message(event.reply_token, messages)
+
     elif mtext in teacher_5:
             teacher_info = teacher_fifth.objects.get(acourse=mtext)
             response_text = (
