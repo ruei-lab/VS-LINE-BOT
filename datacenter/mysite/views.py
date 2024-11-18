@@ -542,6 +542,7 @@ def handle_teacher(event):
         line_bot_api.reply_message(event.reply_token, template_button) 
     elif mtext=='四年級上學期課程評價':
         message=TextSendMessage(text="必修：實務專題(二)  選修：產業分析、就業講座、永續發展 ；請輸入課程名稱") 
+        line_bot_api.reply_message(event.reply_token, message)
     elif mtext=='四年級下學期課程評價':
         message=TextSendMessage(text="必修：無 選修：緊急應變、學期實習 ；請輸入課程名稱")
         line_bot_api.reply_message(event.reply_token, message)
