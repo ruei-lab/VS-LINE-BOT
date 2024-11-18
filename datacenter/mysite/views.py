@@ -255,6 +255,17 @@ def handle_teacher(event):
                 f" {teacher_info.adescription}"
             )
             message = TextSendMessage(text=response_text)
+
+            try:
+            # 嘗試查詢資料
+                teacher_info = teacher_seventh.objects.get(acourse=mtext)
+            # 當查詢成功後執行相應的操作
+                message = TextSendMessage(text=f"查詢結果: {teacher_info.acourse} 的老師資訊是 ...")
+                line_bot_api.reply_message(event.reply_token, message)
+            except teacher_seventh.DoesNotExist:
+        # 當資料不存在時的處理方式
+                error_message = TextSendMessage(text="抱歉，沒有找到相關的授課資料。請確認課程名稱或再次嘗試。")
+                line_bot_api.reply_message(event.reply_token, error_message)
         # 在發送完訊息後，再發送按鈕樣板訊息
             template_button_1 = TemplateSendMessage(
             alt_text='請選擇按鈕',
