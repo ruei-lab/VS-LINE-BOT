@@ -86,7 +86,7 @@ def send_rating_quick_reply(event): #用戶評分
 @handler.add(MessageEvent, message=TextMessage)
 #取得使用者回傳的文字
 def handle_teacher(event):
-    message = [] # 確保 message 在任何情況下都被初始化
+    
     user_id=event.source.user_id
 
     mtext = event.message.text #event.message.text是用戶傳送的訊息
@@ -980,6 +980,7 @@ def handle_teacher(event):
         line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
     elif mtext=='學雜繳費資訊':
+        message = [] # 確保 message 在任何情況下都被初始化
         message.append(TextSendMessage(text="https://ofa.nkust.edu.tw/p/412-1001-5031.php?Lang=zh-tw"))
 
         # 在發送完訊息後，再發送按鈕樣板訊息
