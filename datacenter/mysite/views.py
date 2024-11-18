@@ -270,6 +270,12 @@ def handle_teacher(event):
             print("按鈕數量:", len(actions))  # 確認按鈕數量
             print("按鈕內容:", actions)        # 確認按鈕內容
 
+
+        # 確保 actions 中最多有 4 個按鈕
+            if len(actions) > 4:
+                actions = actions[:4]  # 只保留前 4 個按鈕
+
+
             # 測試按鈕樣板
             template_button_1 = TemplateSendMessage(
                 alt_text='請選擇按鈕',
