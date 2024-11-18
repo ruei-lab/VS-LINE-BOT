@@ -257,7 +257,7 @@ def handle_teacher(event):
         )
         message = TextSendMessage(text=response_text)
 
-        line_bot_api.reply_message(event.reply_token, messages)
+        line_bot_api.reply_message(event.reply_token, message)
 
 
     elif mtext in teacher_5:
