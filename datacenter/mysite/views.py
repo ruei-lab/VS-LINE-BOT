@@ -245,52 +245,44 @@ def handle_teacher(event):
             messages = [message, template_button_1, template_button_2]
             line_bot_api.reply_message(event.reply_token, messages)
     elif mtext in teacher_4:
-            teacher_info = teacher_fourth.objects.get(acourse=mtext)
-            response_text = (
-                f"課程名稱: {teacher_info.acourse}\n"
-                f"授課老師: {teacher_info.aName}\n"
-                f"學期: {teacher_info.asemester}\n"
-                f"開課年級: {teacher_info.agrade}\n"
-                f"性別: {teacher_info.aGender}\n"
-                f"Email: {teacher_info.aEmail}\n"
-                f" {teacher_info.adescription}"
-            )
-            message = TextSendMessage(text=response_text)
+        teacher_info = teacher_fourth.objects.get(acourse=mtext)
+        response_text = (
+        f"課程名稱: {teacher_info.acourse}\n"
+        f"授課老師: {teacher_info.aName}\n"
+        f"學期: {teacher_info.asemester}\n"
+        f"開課年級: {teacher_info.agrade}\n"
+        f"性別: {teacher_info.aGender}\n"
+        f"Email: {teacher_info.aEmail}\n"
+        f" {teacher_info.adescription}"
+        )
+        message = TextSendMessage(text=response_text)
 
-        # 在發送完訊息後，再發送按鈕樣板訊息
-            actions=[
-                    MessageAction(label='外語學習資源', text='外語學習資源'), #授課大綱未完成
-                    MessageAction(label='老師資訊', text='老師資訊'),
-                    MessageAction(label='授課大綱', text='授課大綱'),
-                    MessageAction(label='課程評價', text='課程評價'),
-            ]
-            
-        
-        #列印按鈕數量和內容
-            print("按鈕數量:", len(actions))  # 確認按鈕數量
-            print("按鈕內容:", actions)        # 確認按鈕內容
+    # 定義 actions
+        actions = [
+            MessageAction(label='外語學習資源', text='外語學習資源'),
+            MessageAction(label='老師資訊', text='老師資訊'),
+            MessageAction(label='授課大綱', text='授課大綱'),
+            MessageAction(label='課程評價', text='課程評價'),
+        ]
+    
+    # 檢查按鈕數量，確保最多為 4 個
+        if len(actions) > 4:
+            actions = actions[:4]  # 限制最多 4 個按鈕
+    
+    # 測試按鈕樣板
+        template_button_1 = TemplateSendMessage(
+            alt_text='請選擇按鈕',
+            template=ButtonsTemplate(
+                title='你可能感興趣的其他資訊',
+                text='請選擇',
+                actions=actions
+        )
+    )
 
+    # 發送訊息
+        messages = [message, template_button_1]
+        line_bot_api.reply_message(event.reply_token, messages)
 
-        # 確保 actions 中最多有 4 個按鈕
-            if len(actions) > 4:
-                actions = actions[:4]  # 只保留前 4 個按鈕
-
-
-            # 測試按鈕樣板
-            template_button_1 = TemplateSendMessage(
-                alt_text='請選擇按鈕',
-                template=ButtonsTemplate(
-                    title='你可能感興趣的其他資訊',
-                    text='請選擇',
-                    actions=actions
-                )
-            )
-
-
-
-        #依次發送這兩組訊息
-            messages = [message, template_button_1]
-            line_bot_api.reply_message(event.reply_token, messages)
 
     elif mtext in teacher_5:
             teacher_info = teacher_fifth.objects.get(acourse=mtext)
