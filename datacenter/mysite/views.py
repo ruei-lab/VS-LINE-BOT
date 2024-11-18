@@ -148,6 +148,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
@@ -256,16 +257,6 @@ def handle_teacher(event):
             )
             message = TextSendMessage(text=response_text)
 
-            try:
-            # 嘗試查詢資料
-                teacher_info = teacher_seventh.objects.get(acourse=mtext)
-            # 當查詢成功後執行相應的操作
-                message = TextSendMessage(text=f"查詢結果: {teacher_info.acourse} 的老師資訊是 ...")
-                line_bot_api.reply_message(event.reply_token, message)
-            except teacher_seventh.DoesNotExist:
-        # 當資料不存在時的處理方式
-                error_message = TextSendMessage(text="抱歉，沒有找到相關的授課資料。請確認課程名稱或再次嘗試。")
-                line_bot_api.reply_message(event.reply_token, error_message)
         # 在發送完訊息後，再發送按鈕樣板訊息
             template_button_1 = TemplateSendMessage(
             alt_text='請選擇按鈕',
@@ -277,7 +268,6 @@ def handle_teacher(event):
                     MessageAction(label='老師資訊', text='老師資訊'),
                     MessageAction(label='授課大綱', text='授課大綱'),
                     MessageAction(label='課程評價', text='課程評價'),
-                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )
         )
@@ -292,6 +282,7 @@ def handle_teacher(event):
                     MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
                     MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
                     MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
                 ]
             )             
         )
