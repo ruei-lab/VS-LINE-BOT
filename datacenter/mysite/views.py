@@ -980,10 +980,7 @@ def handle_teacher(event):
         line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
     elif mtext=='學雜繳費資訊':
-        message = [] # 確保 message 在任何情況下都被初始化
-        message.append(TextSendMessage(text="https://ofa.nkust.edu.tw/p/412-1001-5031.php?Lang=zh-tw"))
-
-        # 在發送完訊息後，再發送按鈕樣板訊息
+    # 在發送完訊息後，再發送按鈕樣板訊息
         template_button_1= TemplateSendMessage(
             alt_text='請選擇按鈕',
             template=ButtonsTemplate(
@@ -997,7 +994,6 @@ def handle_teacher(event):
                 ]
             )
         )
-        message.append(template_button_1)
 
         #第二組按鈕
         template_button_2=TemplateSendMessage(
@@ -1013,18 +1009,8 @@ def handle_teacher(event):
                 ]
             )             
         )
-        message.append(template_button_2)
         # 可以在同一個回應中依次發送兩個訊息
-            
-            # 確保有訊息要回覆
-        if message:
-            line_bot_api.reply_message(event.reply_token, message)
-        else:
-        # 如果沒有符合的訊息內容，回覆預設訊息
-            line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="抱歉，我無法理解您的訊息。")
-        )
+        line_bot_api.reply_message(event.reply_token, [template_button_1, template_button_2])
 
     elif mtext in key_words:
         message = TextSendMessage(text=mtext)
