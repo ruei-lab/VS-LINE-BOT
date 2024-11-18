@@ -980,7 +980,7 @@ def handle_teacher(event):
         line_bot_api.reply_message(event.reply_token, [message, template_button_1, template_button_2])
 
     elif mtext=='學雜繳費資訊':
-        response_text=("請點擊以下連結以了解繳費資訊：https://ofa.nkust.edu.tw/p/405-1001-23737,c5020.php?Lang=zh-tw")
+        response_text=("請點擊以下連結：https://ofa.nkust.edu.tw/p/405-1001-23737,c5020.php?Lang=zh-tw")
         message = TextSendMessage(text=response_text)
         
         # 在發送完訊息後，再發送按鈕樣板訊息
