@@ -377,7 +377,7 @@ def handle_teacher(event):
             messages = [message, template_button_1, template_button_2]
             line_bot_api.reply_message(event.reply_token, messages)
     elif mtext in teacher_7:
-            teacher_info = teacher_seventh.objects.get(acourse=mtext)
+            teacher_info = teacher_seventh.objects.filter(acourse=mtext)
             response_text = (
                 f"課程名稱: {teacher_info.acourse}\n"
                 f"授課老師: {teacher_info.aName}\n"
