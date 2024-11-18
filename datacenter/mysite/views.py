@@ -86,6 +86,7 @@ def send_rating_quick_reply(event): #用戶評分
 @handler.add(MessageEvent, message=TextMessage)
 #取得使用者回傳的文字
 def handle_teacher(event):
+    message = [] # 確保 message 在任何情況下都被初始化
     user_id=event.source.user_id
 
     mtext = event.message.text #event.message.text是用戶傳送的訊息
@@ -108,7 +109,6 @@ def handle_teacher(event):
         '四顆星': 4,
         '五顆星': 5,
         }
-    message = [] # 確保 message 在任何情況下都被初始化
 
     if mtext in teachers:
             teacher_info = teacher.objects.get(ccourse=mtext)
@@ -997,6 +997,7 @@ def handle_teacher(event):
             )
         )
         message.append(template_button_1)
+
         #第二組按鈕
         template_button_2=TemplateSendMessage(
             alt_text='請選擇按鈕',
@@ -1013,7 +1014,16 @@ def handle_teacher(event):
         )
         message.append(template_button_2)
         # 可以在同一個回應中依次發送兩個訊息
-        line_bot_api.reply_message(event.reply_token, message)
+            
+            # 確保有訊息要回覆
+        if message:
+            line_bot_api.reply_message(event.reply_token, message)
+        else:
+        # 如果沒有符合的訊息內容，回覆預設訊息
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="抱歉，我無法理解您的訊息。")
+        )
 
     elif mtext in key_words:
         message = TextSendMessage(text=mtext)
