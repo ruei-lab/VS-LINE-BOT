@@ -418,7 +418,7 @@ def handle_teacher(event):
             )             
         )
         #依次發送這兩組訊息
-            messages = [message, template_button_1, template_button_2]
+            messages = [template_button_1, template_button_2]
             line_bot_api.reply_message(event.reply_token, messages)
     elif mtext in teacher_8:
             teacher_info = teacher_eighth.objects.get(acourse=mtext)
