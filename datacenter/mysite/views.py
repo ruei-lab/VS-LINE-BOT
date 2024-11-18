@@ -288,7 +288,13 @@ def handle_teacher(event):
         )
         #依次發送這兩組訊息
             messages = [message, template_button_1, template_button_2]
-            line_bot_api.reply_message(event.reply_token, messages)
+            if len(messages) <= 5:
+                line_bot_api.reply_message(event.reply_token, messages)
+            else:
+                # 若超過限制，可以分批發送
+                line_bot_api.reply_message(event.reply_token, [message])  # 發送第一條消息
+                # 之後再發送其他按鈕消息
+                line_bot_api.reply_message(event.reply_token, [template_button_1, template_button_2])
     elif mtext in teacher_5:
             teacher_info = teacher_fifth.objects.get(acourse=mtext)
             response_text = (
