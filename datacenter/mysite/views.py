@@ -108,7 +108,7 @@ def handle_teacher(event):
         '四顆星': 4,
         '五顆星': 5,
         }
-
+    message = [] # 確保 message 在任何情況下都被初始化
 
     if mtext in teachers:
             teacher_info = teacher.objects.get(ccourse=mtext)
