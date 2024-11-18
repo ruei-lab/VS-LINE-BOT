@@ -257,30 +257,6 @@ def handle_teacher(event):
         )
         message = TextSendMessage(text=response_text)
 
-    # 定義 actions
-        actions = [
-            MessageAction(label='外語學習資源', text='外語學習資源'),
-            MessageAction(label='老師資訊', text='老師資訊'),
-            MessageAction(label='授課大綱', text='授課大綱'),
-            MessageAction(label='課程評價', text='課程評價'),
-        ]
-    
-    # 檢查按鈕數量，確保最多為 4 個
-        if len(actions) > 4:
-            actions = actions[:4]  # 限制最多 4 個按鈕
-    
-    # 測試按鈕樣板
-        template_button_1 = TemplateSendMessage(
-            alt_text='請選擇按鈕',
-            template=ButtonsTemplate(
-                title='你可能感興趣的其他資訊',
-                text='請選擇',
-                actions=actions
-        )
-    )
-
-    # 發送訊息
-        messages = [message, template_button_1]
         line_bot_api.reply_message(event.reply_token, messages)
 
 
