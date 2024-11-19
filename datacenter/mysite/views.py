@@ -95,7 +95,7 @@ def handle_teacher(event):
     teacher_3=['行銷管理','管理資訊系統','存貨管理','採購管理','電子商務','資料庫應用','流通管理']
     teacher_4=['物流管理總論','金流管理總論','生產端管理','區塊鏈應用','綠色行銷','智慧商務']
     teacher_5=['大數據分析','資訊流管理總論','綠色供應鏈總論','供應端管理','財務管理','產業智慧化']
-    teacher_6=['實務專題(一)','緊急運籌總論','需求預測','供應商關係管理','供應鏈資源規劃']
+    teacher_6=['實務專題(一)','緊急運籌總論','需求預測','供應商關係管理','供應鏈資源規劃','安全管理']
     teacher_7=['實務專題(二)','產業分析','就業講座','永續發展']
     teacher_8=['緊急應變','學期實習']
     scm_teacher=['李勝祥','李穎','林義屏','洪榮耀','徐賢斌','溫源鳳','潘郁仁','鄭玉惠','黃彥登']
@@ -380,7 +380,7 @@ def handle_teacher(event):
             messages = [message, template_button_1, template_button_2]
             line_bot_api.reply_message(event.reply_token, messages)
     elif mtext in teacher_7:
-            teacher_info = teacher_seventh.objects.filter(acourse=mtext)
+            teacher_info = teacher_seventh.objects.get(acourse=mtext)
             response_text = (
                 f"課程名稱: {teacher_info.acourse}\n"
                 f"授課老師: {teacher_info.aName}\n"
