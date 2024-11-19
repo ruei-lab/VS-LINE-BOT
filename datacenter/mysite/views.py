@@ -245,19 +245,49 @@ def handle_teacher(event):
             messages = [message, template_button_1, template_button_2]
             line_bot_api.reply_message(event.reply_token, messages)
     elif mtext in teacher_4:
-        teacher_info = teacher_fourth.objects.get(acourse=mtext)
-        response_text = (
-        f"課程名稱: {teacher_info.acourse}\n"
-        f"授課老師: {teacher_info.aName}\n"
-        f"學期: {teacher_info.asemester}\n"
-        f"開課年級: {teacher_info.agrade}\n"
-        f"性別: {teacher_info.aGender}\n"
-        f"Email: {teacher_info.aEmail}\n"
-        f" {teacher_info.adescription}"
+            teacher_info = teacher_fifth.objects.get(acourse=mtext)
+            response_text = (
+                f"課程名稱: {teacher_info.acourse}\n"
+                f"授課老師: {teacher_info.aName}\n"
+                f"學期: {teacher_info.asemester}\n"
+                f"開課年級: {teacher_info.agrade}\n"
+                f"性別: {teacher_info.aGender}\n"
+                f"Email: {teacher_info.aEmail}\n"
+                f" {teacher_info.adescription}"
+            )
+            message = TextSendMessage(text=response_text)
+        # 在發送完訊息後，再發送按鈕樣板訊息
+            template_button_1 = TemplateSendMessage(
+            alt_text='請選擇按鈕',
+            template=ButtonsTemplate(
+                title='你可能感興趣的其他資訊',
+                text='請選擇',
+                actions=[
+                    MessageAction(label='外語學習資源', text='外語學習資源'), #授課大綱未完成
+                    MessageAction(label='老師資訊', text='老師資訊'),
+                    MessageAction(label='授課大綱', text='授課大綱'),
+                    MessageAction(label='課程評價', text='課程評價'),
+                ]
+            )
         )
-        message = TextSendMessage(text=response_text)
-
-        line_bot_api.reply_message(event.reply_token, message)
+        # 在發送完訊息後，再發送按鈕樣板訊息
+            #第二組按鈕
+            template_button_2=TemplateSendMessage(
+                alt_text='請選擇按鈕',
+                template=ButtonsTemplate(
+                title='你可能感興趣的其他資訊',
+                text='請選擇',
+                actions=[
+                    MessageAction(label='系所辦公室資訊', text='系所辦公室資訊'), #授課大綱未完成
+                    MessageAction(label='我要為機器人評分', text='我要為機器人評分'),
+                    MessageAction(label='語音輸入關鍵字', text='語音輸入關鍵字'),
+                    MessageAction(label='學雜繳費資訊', text='學雜繳費資訊'),
+                ]
+            )             
+        )
+        #依次發送這兩組訊息
+            messages = [message, template_button_1, template_button_2]
+            line_bot_api.reply_message(event.reply_token, messages)
 
 
     elif mtext in teacher_5:
