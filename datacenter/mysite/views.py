@@ -391,6 +391,7 @@ def handle_teacher(event):
                 f" {teacher_info.adescription}"
             )
             message = TextSendMessage(text=response_text)
+
         # 在發送完訊息後，再發送按鈕樣板訊息
             template_button_1 = TemplateSendMessage(
             alt_text='請選擇按鈕',
@@ -421,7 +422,7 @@ def handle_teacher(event):
             )             
         )
         #依次發送這兩組訊息
-            messages = [template_button_1, template_button_2]
+            messages = [message,template_button_1, template_button_2]
             line_bot_api.reply_message(event.reply_token, messages)
     elif mtext in teacher_8:
             teacher_info = teacher_eighth.objects.get(acourse=mtext)
